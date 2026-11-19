@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 ruby '2.7.8'
 
 # Every gem is pinned to an old release with published advisories.
-gem 'addressable', '2.7.0'
-gem 'kramdown', '2.3.0'
-gem 'rack', '2.0.8'
-gem 'rake', '12.3.2'
-gem 'rexml', '3.2.4'
+gem 'addressable', '2.9.1'
+gem 'kramdown', '2.3.1'
+gem 'rack', '2.2.25'
+gem 'rake', '12.3.3'
+gem 'rexml', '3.4.2'
