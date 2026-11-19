@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= h.call(title) %> · GHAS Me Up</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page">
+    <a class="back" href="../">&larr; GHAS Me Up</a>
+    <h1 style="color: <%= h.call(accent) %>"><%= h.call(title) %></h1>
+    <div class="meta">
+      <span>Ruby <%= h.call(ruby_version) %></span>
+      <span>built <%= h.call(built_at) %></span>
+      <span>stamp (md5) <%= h.call(BUILD_STAMP) %></span>
+      <span>preview token <%= h.call(PREVIEW_TOKEN) %></span>
+    </div>
+
+    <%= content %>
+
+    <table>
+      <thead><tr><th>Gem</th><th>Locked version</th></tr></thead>
+      <tbody>
+        <%- gems.each do |gem| -%>
+        <tr><td><%= h.call(gem[:name]) %></td><td><%= h.call(gem[:version]) %></td></tr>
+        <%- end -%>
+      </tbody>
+    </table>
+
+    <p class="note">Intentionally outdated. Source:
+      <a href="<%= h.call(source_url) %>">ruby/</a>. See
+      <strong>Security &rarr; Dependabot</strong> on GitHub.</p>
+  </div>
+</body>
+</html>

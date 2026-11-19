@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GHAS Me Up — build-time &amp; runtime security demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">⚠ Intentionally vulnerable demo</p>
+    <h1>GHAS&nbsp;<span class="accent">Me&nbsp;Up</span></h1>
+    <p class="lede">One tiny site, built three ways. Every build ships stale dependencies.
+      GitHub finds them before you do.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Build time</h2>
+      <p class="sub">Three pipelines, three ecosystems, one Pages site.</p>
+      <div class="cards">
+        <a class="card node" href="node/">
+          <span class="badge">Node.js</span>
+          <h3>package-lock.json</h3>
+          <p>lodash, handlebars, marked, minimist, jQuery &mdash; pinned years behind.</p>
+          <span class="chip">Dependabot: npm</span>
+        </a>
+        <a class="card ruby" href="ruby/">
+          <span class="badge">Ruby</span>
+          <h3>Gemfile.lock</h3>
+          <p>Ruby 2.7 (end of life) with kramdown, rack, rexml, rake &mdash; all stale.</p>
+          <span class="chip">Dependabot: bundler</span>
+        </a>
+        <a class="card go" href="go/">
+          <span class="badge">Go</span>
+          <h3>go.mod</h3>
+          <p><code>go 1.16</code> with x/crypto, x/text, yaml.v2, jwt-go &mdash; frozen in time.</p>
+          <span class="chip">Dependabot: gomod</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Runtime</h2>
+      <p class="sub">This page is live. Try to break it.</p>
+      <div class="panel">
+        <p id="greeting" class="greeting">Hello, friend!</p>
+        <form id="hello-form" autocomplete="off">
+          <label for="name">Your name</label>
+          <input id="name" type="text" placeholder="Ada Lovelace">
+          <button type="submit">Say hello</button>
+        </form>
+        <p class="hint">The name round-trips through <code>location.hash</code> into jQuery 3.4.1
+          <code>.html()</code>. CodeQL sees the whole data flow.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What GitHub is watching</h2>
+      <ul class="watch">
+        <li><strong>Dependabot alerts</strong> for every pinned dependency across npm, bundler and Go modules</li>
+        <li><strong>Dependabot security updates</strong> that open the fix PR for you</li>
+        <li><strong>Code scanning</strong> (CodeQL) for JavaScript, Ruby, Go and the Actions workflows themselves</li>
+        <li><strong>Dependency review</strong> that blocks risky dependency changes in PRs</li>
+        <li><strong>Secret scanning &amp; push protection</strong> before a token ever lands in history</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Source: <a href="https://github.com/artofthepossible/ghas-me-up">artofthepossible/ghas-me-up</a>
+      &middot; Do not deploy anything like this for real.</p>
+  </footer>
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

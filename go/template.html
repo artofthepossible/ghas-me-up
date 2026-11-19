@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{.Title}} · GHAS Me Up</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page">
+    <a class="back" href="../">&larr; GHAS Me Up</a>
+    <h1 style="color: {{.Accent}}">{{.Title}}</h1>
+    <div class="meta">
+      <span>{{.GoVersion}}</span>
+      <span>locale {{.Locale}}</span>
+      <span>built {{.BuiltAt}}</span>
+      <span>stamp (md5) {{.BuildStamp}}</span>
+      <span>bcrypt verified: {{.BcryptOK}}</span>
+    </div>
+
+    <h2>Built with Go</h2>
+    <p>This page was generated at <strong>build time</strong> by <code>go/main.go</code> using
+      <code>html/template</code>, yaml.v2, x/crypto, x/text and jwt-go.</p>
+    <p>The table lists the modules linked into the build, pinned by <code>go.mod</code>
+      (<code>go 1.16</code>). Open the repository's <strong>Security</strong> tab to see what
+      Dependabot found.</p>
+
+    <table>
+      <thead><tr><th>Module</th><th>Version</th></tr></thead>
+      <tbody>
+        {{range .Modules}}
+        <tr><td>{{.Path}}</td><td>{{.Version}}</td></tr>
+        {{end}}
+      </tbody>
+    </table>
+
+    <p class="note">Intentionally outdated. See <strong>Security &rarr; Dependabot</strong> on GitHub.</p>
+  </div>
+</body>
+</html>

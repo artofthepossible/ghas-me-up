@@ -1,0 +1,6 @@
+desc 'Render ruby/index.html into ../dist'
+task :build do
+  ruby 'build.rb', '../dist'
+end
+
+task default: :build

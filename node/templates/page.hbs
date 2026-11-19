@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{config.title}} · GHAS Me Up</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page">
+    <a class="back" href="../">&larr; GHAS Me Up</a>
+    <h1 style="color: {{config.accent}}">{{config.title}}</h1>
+    <div class="meta">
+      <span>Node {{nodeVersion}}</span>
+      <span>built {{builtAt}}</span>
+      <span>stamp (md5) {{buildStamp}}</span>
+      <span>preview token {{previewToken}}</span>
+    </div>
+
+    {{{content}}}
+
+    <table>
+      <thead><tr><th>Package</th><th>Pinned version</th></tr></thead>
+      <tbody>
+        {{#each dependencies}}
+        <tr><td>{{name}}</td><td>{{version}}</td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <p class="note">Intentionally outdated. Run <code>npm audit</code> locally, or open
+      <strong>Security &rarr; Dependabot</strong> on GitHub.</p>
+  </div>
+</body>
+</html>
